@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
+    "@ethereum-attestation-service/eas-sdk": "^2.7.0",
     "@etherspot/prime-sdk": "^1.9.2",
     "@privy-io/react-auth": "1.94.0",
     "@privy-io/wagmi": "0.2.12",
