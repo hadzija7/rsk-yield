@@ -24,8 +24,7 @@ export default function InfiniteScroll(): JSX.Element {
     <div className="scroller" ref={scroller}>
       <ul className="inner-scroller" ref={scrollerInner}>
         <p className="paragraph">
-          Join the Hackathon Bitcoin Meets Solidity Hackathon! Innovate,
-          collaborate, and create the future with Rootstock.
+          Optimise DeFi with RSK Attestor. More capital, more efficiency.
         </p>
       </ul>
     </div>

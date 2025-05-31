@@ -20,7 +20,7 @@ export function AttestationGenerator() {
 
       toast({
         title: "Attestation Generated",
-        description: `Transaction hash: ${attestation.hash}`,
+        description: `Transaction hash: ${attestation}`,
       });
     } catch (err) {
       toast({
@@ -38,9 +38,13 @@ export function AttestationGenerator() {
         value={statement}
         onChange={(e) => setStatement(e.target.value)}
         placeholder="Enter your statement"
-        className="w-full p-2 border rounded"
+        className="w-full p-2 border rounded text-black mt-4"
       />
-      <Button type="submit" disabled={isLoading || !connectedAddress}>
+      <Button
+        className="flex justify-center items-center"
+        type="submit"
+        disabled={isLoading || !connectedAddress}
+      >
         {isLoading ? "Generating..." : "Generate Attestation"}
       </Button>
       {error && <p className="text-red-500">{error}</p>}

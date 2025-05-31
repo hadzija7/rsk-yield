@@ -3,11 +3,15 @@ import { useAccount } from "wagmi";
 import { EAS, SchemaEncoder } from "@ethereum-attestation-service/eas-sdk";
 import { ethers } from "ethers";
 import { useState } from "react";
+import { useNotification } from "@blockscout/app-sdk";
 
 // Constants
+// mainnet: 0x54c0726E9D2D57Bc37aD52C7E219a3229E0ee963
 const EAS_CONTRACT_ADDRESS = "0xc300aeeadd60999933468738c9f5d7e9c0671e1c"; // Testnet
 const SCHEMA_UID =
-  "0xf58b8b212ef75ee8cd7e8d803c37c03e0519890502d5e99ee2412aae1456cafe";
+  "0xb6f6b58e5313374f1cd09b8ac1de3a2d4e805c0c8bcdbb1270000fc8d214479a";
+
+//eas statement attestation: "0xf58b8b212ef75ee8cd7e8d803c37c03e0519890502d5e99ee2412aae1456cafe";
 
 interface AttestationData {
   statement: string;
@@ -76,6 +80,7 @@ export function useAttestation() {
   const { address } = useAccount();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { openTxToast } = useNotification();
 
   const generateAttestation = async (attestationData: AttestationData) => {
     try {
@@ -111,12 +116,18 @@ export function useAttestation() {
             attestationData.recipient ||
             "0x0000000000000000000000000000000000000000",
           expirationTime: attestationData.expirationTime || BigInt(0),
-          revocable: attestationData.revocable ?? true,
+          revocable: attestationData.revocable ?? false,
           data: encodedData,
         },
       });
 
+      console.log("Transaction: ", tx);
+
       const attestation = await tx.wait();
+      console.log("Attestation: ", attestation);
+
+      openTxToast("31", attestation);
+
       return attestation;
     } catch (err) {
       setError(

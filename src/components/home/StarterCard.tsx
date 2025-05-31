@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import {
   Card,
   CardDescription,
@@ -12,10 +11,10 @@ export default function StarterCard({
 }: {
   starter: StarterProps;
 }): JSX.Element {
-  const navigate = useNavigate();
-
   return (
-    <button onClick={() => navigate(starter.link)}>
+    <button
+      onClick={() => window.open(starter.link, "_blank", "noopener noreferrer")}
+    >
       <Card className="hover:border-primary/70 transition-all hover:opacity-80">
         <CardHeader>
           <CardTitle>{starter.name}</CardTitle>
