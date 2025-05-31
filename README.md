@@ -1,76 +1,67 @@
-[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/rsksmart/rsk-privy-starter-kit/badge)](https://scorecard.dev/viewer/?uri=github.com/rsksmart/rsk-privy-starter-kit)
-[![CodeQL](https://github.com/rsksmart/rsk-privy-starter-kit/workflows/CodeQL/badge.svg)](https://github.com/rsksmart/rsk-privy-starter-kit/actions?query=workflow%3ACodeQL)
-<img src="rootstock-logo.jpg" alt="RSK Logo" style="width:100%; height: auto;" />
 
-## Rootstock Wagmi & Privy
+# 🛡️ RSK Attestor
 
-This starter kit provides a foundation for building decentralized applications (dApps) on the Rootstock blockchain using [React](https://react.dev/learn), [Wagmi](https://wagmi.sh/) and [Shadcn](https://ui.shadcn.com/) libraries. It includes features such as:
+**A decentralized credit scoring and identity attestation infrastructure for DeFi and beyond.**
 
-- Integration with [Privy](https://www.privy.io/user-guide) for wallet connection and interacting with smart contracts
-- Sample integrations of interactions with tokens like ERC20, ERC721, and ERC1155.
-- Prettier and eslint configured for project files.
-- Tailwindcss and Shadcn configured for style customization.
+---
 
-Check the live demo here: https://rsk-privy-starter-kit.vercel.app/
+## 🚀 Overview
 
-## Project Structure
+RSK Attestor introduces a new financial primitive: decentralized credit scores linked to verifiable identities. By integrating this infrastructure with DeFi protocols, users can unlock personalized financial services—such as improved Loan-to-Value (LTV) ratios—based on their creditworthiness.
 
-```text
-.
-├── public
-├── src
-│   ├── App.tsx
-│   ├── assets
-│   ├── components
-│   ├── config
-│   │   ├── providers.tsx  // Privy setup file
-│   │   └── wagmiProviderConfig.ts
-│   ├── lib
-│   │   └── utils
-│   ├── main.tsx
-│   ├── pages
-├── package.json
-```
+Whether you're building in Web3 or bridging to TradFi, RSK Attestor enables you to bring trust and context to permissionless finance.
 
-## Supported Networks
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/17b0a11a-7981-42ee-8163-c2677c6d6e75" />
 
-- Rootstock Mainnet
-- Rootstock Testnet
 
-## Usage
+---
 
-### Setup
+## 🧠 Problem
 
-#### 1. Clone Repository
+DeFi currently suffers from:
 
-```shell
-git clone https://github.com/JuanAgudeloRSL/rsk-privy-starter-kit
-cd rsk-privy-starter-kit
-```
+- **Lack of Identity:** No persistent or trustworthy financial identity for users.
+- **Flat Risk Models:** Uniform LTV ratios regardless of user behavior.
+- **Poor TradFi Compatibility:** DeFi user data is siloed and not useful off-chain.
 
-#### 2. Configure Project
+---
 
-Copy the `.env.example` file and rename it to `.env`, and add a variables:
+## 🎯 Target Market
 
-```shell
-VITE_PRIVY_APP_ID='your Privy App ID'
-VITE_BUNDLER_API_KEY='etherspot_public_key'
-VITE_CUSTOM_BUNDLER_URL=https://rootstocktestnet-bundler.etherspot.io/
-```
-> **Note**: Go to [Privy Dashboard](https://dashboard.privy.io/) and create a project, copy the project ID and paste it on `VITE_PRIVY_APP_ID`.
+- **DeFi Protocols:** Lending, identity, and reputation protocols needing risk differentiation.
+- **TradFi & Fintechs:** Platforms seeking DeFi-native credit insights for crypto-savvy borrowers.
+- **Emerging Markets:** Cross-border lending apps targeting underbanked populations.
 
-#### 3. Install Dependencies
+---
 
-> **Note**: We recommend using yarn package manager given that there are some conflicts when installing some packages with npm.
+## 🛠️ Features
 
-For the variables `VITE_BUNDLER_API_KEY` and `VITE_CUSTOM_BUNDLER_URL`, these are used for the etherspot gasless demo part, and these variables (for testnet) are public. For production use, please obtain bundler api key and bundler url from [Etherspot](https://etherspot.io/)
+- 📊 **Decentralized Credit Score Calculation**
+- ✅ **On-chain Attestations Linked to DID**
+- 🔗 **Composable with Lending Protocols**
+- 🌉 **Bridges On-Chain History to Off-Chain Use Cases**
+- 🔍 **Transparent, Auditable Score Criteria**
 
-```shell
-yarn
-```
+---
 
-#### 4. Run Project
+## 💡 Use Cases
 
-```shell
-yarn dev
-```
+- **DeFi Lending:** Adjust LTV based on credit score.
+- **Reputation Systems:** Boost trust signals on identity protocols.
+- **TradFi Access:** Use on-chain creditworthiness to unlock fiat loans.
+
+---
+
+## 🧱 Built On
+
+- [Rootstock (RSK)](https://rootstock.io/) smart contract platform
+- Decentralized Identity (DID) standards
+- Verifiable Credentials (VCs)
+- RSK Attestation Service (RAS)
+- [Blockscout](https://docs.blockscout.com/devs/blockscout-sdk) sdk
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions, research, and integrations. Open an issue or pull request to collaborate.
